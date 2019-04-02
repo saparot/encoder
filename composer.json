@@ -1,0 +1,40 @@
+{
+  "name": "saparot/encoder",
+  "description": "string and array encoding converter",
+  "homepage": "https://github.com/saparot/php-encoder",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Markus",
+      "email": "mme@bitsbeats.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "keywords": [
+    "multibyte",
+    "mb",
+    "utf8",
+    "latin1",
+    "converter",
+    "convert",
+    "encoding"
+  ],
+  "type": "library",
+  "require": {
+    "php": ">=7.0",
+    "ext-mbstring": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Encoder\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "EncoderTest\\": "tests/"
+    }
+  }
+}
