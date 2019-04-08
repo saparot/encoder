@@ -78,7 +78,7 @@ class Encoder {
      */
     public function __construct($encGroupDefault = self::ENC_GROUP_LATIN) {
         if (!isset($this->encodingGroups[$encGroupDefault])) {
-            throw new \Exception("encoding group {$encGroupDefault} is not known", 1001);
+            throw new Exception("encoding group {$encGroupDefault} is not known", 1001);
         }
         $this->encodingGroupDefault = $encGroupDefault;
     }
@@ -114,7 +114,7 @@ class Encoder {
             return $string;
         }
         if (!isset($this->encodingList[$encodingTo])) {
-            throw new \Exception("encoding '{$decodeWith}' is not supported, tried string '{$string}'", 5001);
+            throw new Exception("encoding '{$decodeWith}' is not supported, tried string '{$string}'", 5001);
         }
 
         if ($encGroup === self::ENC_GROUP_DEFAULT) {
@@ -122,14 +122,14 @@ class Encoder {
         }
 
         if (!isset($this->encodingGroups[$encGroup])) {
-            throw new \Exception("encoding group '{$encGroup}' is not known, tried detect string '{$string}'", 6001);
+            throw new Exception("encoding group '{$encGroup}' is not known, tried detect string '{$string}'", 6001);
         }
 
         if (!$decodeWith) {
             $decodeWith = $this->detectEncoding($string, $encGroup);
         }
         if (!isset($this->encodingList[$decodeWith])) {
-            throw new \Exception("unsupported encoding for decode: {$decodeWith} for string {$string}", 6002);
+            throw new Exception("unsupported encoding for decode: {$decodeWith} for string {$string}", 6002);
         }
         return mb_convert_encoding($string, $encodingTo, $decodeWith);
     }
@@ -151,11 +151,11 @@ class Encoder {
         }
 
         if (!isset($this->encodingGroups[$encGroup])) {
-            throw new \Exception("encoding group '{$encGroup}' is not known, tried detect string '{$string}'", 6001);
+            throw new Exception("encoding group '{$encGroup}' is not known, tried detect string '{$string}'", 6001);
         }
         $detected = mb_detect_encoding($string, $this->encodingGroups[$encGroup]['detectOrder'], true);
         if (!$detected) {
-            throw new \Exception("failed to detect encoding for string {$string}", 6002);
+            throw new Exception("failed to detect encoding for string {$string}", 6002);
         }
         switch ($detected) {
             case self::ENC_UTF_8:
